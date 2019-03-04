@@ -1,30 +1,32 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { connect } from 'react-redux'
-import Home from '../Home/Home'
-import './App.css';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import Home from "../Home/Home";
+import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path='/' component={Home} />
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 function mapStateToProps(state) {
   return {
-
-  }
+    ...state
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-  }
+    ...dispatch
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
